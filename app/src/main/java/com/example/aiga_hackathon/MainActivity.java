@@ -1,6 +1,9 @@
 package com.example.aiga_hackathon;
 
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText email, password;
+    ImageView seePassword;
+    ImageButton signButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +27,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
     }
 }

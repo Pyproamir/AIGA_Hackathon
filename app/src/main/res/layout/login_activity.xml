@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".auth.LogInActivity">
 
 
     <ImageButton
@@ -74,6 +74,13 @@
                 android:hint="Write your email adress"
                 />
 
+            <ImageView
+                android:id="@+id/email_mark_signIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@null"
+                android:layout_gravity="center"/>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -115,6 +122,12 @@
                 android:layout_height="wrap_content"
                 android:hint="Write your password"
                 />
+            <ImageView
+                android:id="@+id/password_mark_signIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@null"
+                android:layout_gravity="center"/>
             <ImageView
                 android:id="@+id/see_password"
                 android:layout_width="30dp"

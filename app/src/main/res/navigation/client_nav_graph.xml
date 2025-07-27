@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/client_nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment android:id="@+id/homeFragment" android:name="com.example.aiga_hackathon.client.HomeFragment" android:label="Home"/>
+    <fragment android:id="@+id/trainingsFragment" android:name="com.example.aiga_hackathon.client.TrainingsFragment" android:label="Trainings"/>
+    <fragment android:id="@+id/scheduleFragment" android:name="com.example.aiga_hackathon.client.ScheduleFragment" android:label="Schedule"/>
+    <fragment android:id="@+id/buyFragment" android:name="com.example.aiga_hackathon.client.BuyFragment" android:label="Buy"/>
+    <fragment android:id="@+id/chatFragment" android:name="com.example.aiga_hackathon.client.ChatFragment" android:label="Chat"/>
+
+</navigation>

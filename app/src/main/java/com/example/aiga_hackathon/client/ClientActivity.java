@@ -7,21 +7,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.aiga_hackathon.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ClientHomeActivity extends AppCompatActivity {
+public class ClientActivity extends AppCompatActivity {
 
+    BottomNavigationView nav;
+    NavController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_client_home);
+        setContentView(R.layout.activity_client);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        nav = findViewById(R.id.client_bottom_nav);
+        controller = Navigation.findNavController(this, R.id.client_nav_host);
+        NavigationUI.setupWithNavController(nav, controller);
     }
 }

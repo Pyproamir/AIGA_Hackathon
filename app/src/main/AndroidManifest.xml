@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AIGA_Hackathon"
         tools:targetApi="31">
         <activity
-            android:name=".client.ClientHomeActivity"
+            android:name=".client.ClientActivity"
             android:exported="false" />
         <activity
             android:name=".auth.ChoosingAuditory"

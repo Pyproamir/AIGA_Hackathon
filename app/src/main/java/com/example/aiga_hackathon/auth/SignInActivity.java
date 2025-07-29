@@ -1,11 +1,12 @@
 package com.example.aiga_hackathon.auth;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +15,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.aiga_hackathon.R;
+import com.example.aiga_hackathon.client.ClientActivity;
 
-public class LogInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     EditText email, password;
     ImageView seePassword, passwordMark, emailMark;
@@ -25,7 +27,7 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.activity_sign_in);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -40,6 +42,8 @@ public class LogInActivity extends AppCompatActivity {
         passwordMark = findViewById(R.id.password_mark_signIn);
 
         signButton.setOnClickListener(v->{
+
+            /*
             String emailStr = email.getText().toString().trim();
             String passwordStr = password.getText().toString().trim();
             signInProcess(email, password);
@@ -68,10 +72,26 @@ public class LogInActivity extends AppCompatActivity {
 
             performLogin(emailStr, passwordStr);
 
+             */
+            SharedPreferences prefs = getSharedPreferences("auth", MODE_PRIVATE);
+            prefs.edit().putBoolean("logged_in", true).apply();
+
+            startActivity(new Intent(this, ClientActivity.class));
+            finish();
+
+        });
+
+        seePassword.setOnClickListener(v -> {
+            if (password.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            } else {
+                password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            }
+            password.setSelection(password.getText().length());
         });
 
     }
-
+    /*
     private void signInProcess(EditText email, EditText password){
         String emailPattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
         String passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
@@ -82,7 +102,7 @@ public class LogInActivity extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(LogInActivity.this, LogInActivity.class);
+        Intent intent = new Intent(LogInActivity.this, ClientActivity.class);
         startActivity(intent);
         finish();
     }
@@ -114,5 +134,7 @@ public class LogInActivity extends AppCompatActivity {
     private boolean checkAccount(EditText email) {
         return false;
     }
+
+     */
 
 }

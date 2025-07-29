@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.LogInActivity">
+    tools:context=".auth.SignInActivity">
 
 
     <ImageButton
@@ -72,6 +72,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Write your email adress"
+                android:minHeight="48dp"
+                android:autofillHints="emailAddress"
                 />
 
             <ImageView
@@ -79,7 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@null"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"/>
 
         </LinearLayout>
 
@@ -121,13 +124,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Write your password"
+                android:minHeight="48dp"
+                android:inputType="textPassword"
+                android:autofillHints="password"
                 />
             <ImageView
                 android:id="@+id/password_mark_signIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@null"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"/>
             <ImageView
                 android:id="@+id/see_password"
                 android:layout_width="30dp"

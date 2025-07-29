@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.aiga_hackathon.R;
 
-public class signUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     EditText email, password, name, phone;
     ImageView seePassword, emailMark, phoneMark, nameMark, passwordMark;
@@ -65,8 +64,7 @@ public class signUp extends AppCompatActivity {
             return;
         }
 
-        Intent intent = new Intent(signUp.this, ChoosingAuditory.class);
-        startActivity(intent);
+        startActivity(new Intent(this, ChoosingAuditory.class));
         finish();
     }
 

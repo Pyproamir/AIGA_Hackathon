@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.aiga_hackathon.R;
@@ -31,7 +32,10 @@ public class ClientActivity extends AppCompatActivity {
         });
 
         nav = findViewById(R.id.client_bottom_nav);
-        controller = Navigation.findNavController(this, R.id.client_nav_host);
+        NavHostFragment navHostFragment = (NavHostFragment)
+                getSupportFragmentManager().findFragmentById(R.id.client_nav_host);
+        controller = navHostFragment != null ? navHostFragment.getNavController() : null;
         NavigationUI.setupWithNavController(nav, controller);
+
     }
 }

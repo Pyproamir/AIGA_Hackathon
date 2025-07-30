@@ -76,13 +76,7 @@
                 android:autofillHints="emailAddress"
                 />
 
-            <ImageView
-                android:id="@+id/email_mark_signIn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@null"
-                android:layout_gravity="center"
-                android:contentDescription="@string/app_name"/>
+
 
         </LinearLayout>
 
@@ -129,13 +123,6 @@
                 android:autofillHints="password"
                 />
             <ImageView
-                android:id="@+id/password_mark_signIn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@null"
-                android:layout_gravity="center"
-                android:contentDescription="@string/app_name"/>
-            <ImageView
                 android:id="@+id/see_password"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -159,6 +146,19 @@
         app:layout_constraintTop_toBottomOf="@+id/password_linear_layout"
         app:srcCompat="@drawable/sign_in"
         android:contentDescription="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:fontFamily="@font/poppins"
+        android:text="Already have an account. Sign Up"
+        android:textColor="#A2A2A7"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     

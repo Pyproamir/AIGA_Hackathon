@@ -14,7 +14,7 @@
         android:id="@+id/aiga_logo"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@null"
+        android:src="@drawable/ic_aiga"
         android:layout_marginBottom="24dp"
         android:contentDescription="AIGA Academy Logo" />
 

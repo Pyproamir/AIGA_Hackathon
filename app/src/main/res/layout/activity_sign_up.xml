@@ -70,13 +70,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Write your name"
+                android:minHeight="48sp"
+                android:inputType="textPersonName"
+                android:autofillHints="name"
                 />
-            <ImageView
-                android:id="@+id/name_mark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@null"
-                android:layout_gravity="center"/>
+
 
 
         </LinearLayout>
@@ -119,13 +117,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Write your phone number"
+                android:minHeight="48dp"
+                android:inputType="phone"
+                android:autofillHints="phone"
                 />
-            <ImageView
-                android:id="@+id/phone_mark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@null"
-                android:layout_gravity="center"/>
+
 
         </LinearLayout>
 
@@ -167,13 +163,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Write your email address"
+                android:minHeight="48sp"
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress"
                 />
-            <ImageView
-                android:id="@+id/email_mark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@null"
-                android:layout_gravity="center"/>
 
         </LinearLayout>
 
@@ -211,17 +204,15 @@
                 android:contentDescription="@string/app_name"
                 />
             <EditText
-                android:id="@+id/password_singup_editText"
+                android:id="@+id/password_signup_editText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Write your password"
+                android:minHeight="48dp"
+                android:inputType="textPassword"
+                android:autofillHints="password"
                 />
-            <ImageView
-                android:id="@+id/password_mark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@null"
-                android:layout_gravity="center"/>
+
             <ImageView
                 android:id="@+id/see_password_signup"
                 android:layout_width="30dp"
@@ -244,8 +235,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_linear_layout"
-        app:srcCompat="@drawable/sign_up"
+        app:srcCompat="@drawable/ic_sign_up"
         android:contentDescription="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/textLinkSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:fontFamily="@font/poppins"
+        android:text="Already have an account. Sign In"
+        android:textColor="#A2A2A7"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

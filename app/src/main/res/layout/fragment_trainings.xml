@@ -20,18 +20,18 @@
             android:textAlignment="center"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:textFontWeight="800"/>
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:id="@+id/AlmatySpinner"/>
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/GraplingSpinner"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/GrapplingSpinner"/>
     </LinearLayout>
 
 </FrameLayout>

@@ -6,48 +6,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".client.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/imageView"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/home_icon"
-            android:scaleType="fitXY"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/profile_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/profile_icon"
-            android:scaleType="fitXY"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/home_icon"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/app_name"/>
 
             <ImageView
+                android:id="@+id/profile_icon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/profile_icon"
                 android:scaleType="fitXY"
-                android:src="@drawable/main_icon"
                 android:contentDescription="@string/app_name"/>
-        </LinearLayout>
+        </FrameLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:layout_alignParentLeft="true">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/main_icon"
+                    android:contentDescription="@string/app_name"
+                    android:layout_gravity="center_vertical"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="79dp"
+                    android:src="@drawable/ic_aiga"
+                    android:layout_gravity="center_vertical"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="true">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:src="@drawable/notification_icon"
+                    android:background="@drawable/rounded_border"
+                    android:gravity="end"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:src="@drawable/purchase_icon"
+                    android:background="@drawable/rounded_border"
+                    android:gravity="end"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
 </FrameLayout>

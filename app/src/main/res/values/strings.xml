@@ -11,4 +11,16 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="training_text">
+    Neck bridges - 3 min\n
+    Shrimping - 2 sets x 10\n
+    Sprawls - 2 sets x 10\n
+    Bridging + shrimp – 3 sets x 20\n
+    Kettlebell - 3 sets x 15\n
+    Explosive sprawls - 2 sets x 10\n
+    Grip fighting - 3 rounds (1 min)\n
+    Sparring - 5 rounds (1:30 min)
+    </string>
+
 </resources>

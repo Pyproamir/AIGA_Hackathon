@@ -1,24 +1,20 @@
 package com.example.aiga_hackathon.client;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
 import com.example.aiga_hackathon.R;
 import com.example.aiga_hackathon.client.training.TrainingAdapter;
 import com.example.aiga_hackathon.client.training.TrainingItem;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,15 +84,26 @@ public class TrainingsFragment extends Fragment {
         trainingItems.add(new TrainingItem("Training"));
 
         AlmatySpinner = view.findViewById(R.id.AlmatySpinner);
+        GrapplingSpinner = view.findViewById(R.id.GrapplingSpinner);
 
-        String[] AlmatySpinnerItems = new String[]{"Almaty", "Training", "Hello"};
-
-        TrainingAdapter adapter = new TrainingAdapter(
+        TrainingAdapter adapterAlmaty = new TrainingAdapter(
                 requireContext(),
                 R.layout.custom_spinner_training,
-                trainingItems);
+                R.layout.custom_drop_down_training,
+                trainingItems
+        );
 
-        AlmatySpinner.setAdapter(adapter);
+        AlmatySpinner.setAdapter(adapterAlmaty);
+
+
+        TrainingAdapter adapterGrappling = new TrainingAdapter(
+                requireContext(),
+                R.layout.custom_spinner_training,
+                R.layout.custom_drop_down_training,
+                trainingItems
+        );
+
+        GrapplingSpinner.setAdapter(adapterGrappling);
     }
 
 }

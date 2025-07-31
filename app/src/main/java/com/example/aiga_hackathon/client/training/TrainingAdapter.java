@@ -13,34 +13,19 @@ import java.util.List;
 
 public class TrainingAdapter extends ArrayAdapter<TrainingItem>{
     private LayoutInflater inflater;
-    private int layoutSpinner;
-
-    private int layoutDropDown;
+    private int layout;
     private List<TrainingItem> states;
 
-    public TrainingAdapter(Context context, int resourceSpinner, int resourceDropDown, List<TrainingItem> states) {
-        super(context, resourceSpinner, states);
+    public TrainingAdapter(Context context, int resource, List<TrainingItem> states) {
+        super(context, resource, states);
         this.states = states;
-        layoutSpinner = resourceSpinner;
-        layoutDropDown = resourceDropDown;
+        layout = resource;
         this.inflater = LayoutInflater.from(context);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = inflater.inflate(this.layoutSpinner, parent, false);
-
-        TextView textView = view.findViewById(R.id.spinner_text_training);
-        TrainingItem trainingItem = states.get(position);
-
-        textView.setText(trainingItem.getString());
-
-        return view;
-    }
-
-    @Override
-    public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        View view = inflater.inflate(this.layoutDropDown, parent, false);
+        View view = inflater.inflate(this.layout, parent, false);
 
         TextView textView = view.findViewById(R.id.drop_down_text_training);
         TrainingItem trainingItem = states.get(position);

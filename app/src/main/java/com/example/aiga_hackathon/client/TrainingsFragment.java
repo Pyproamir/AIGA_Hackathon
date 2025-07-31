@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.aiga_hackathon.R;
-import com.example.aiga_hackathon.client.training.TrainingAdapter;
 import com.example.aiga_hackathon.client.training.TrainingItem;
 
 import java.util.ArrayList;
@@ -83,27 +82,27 @@ public class TrainingsFragment extends Fragment {
         trainingItems.add(new TrainingItem("Almaty"));
         trainingItems.add(new TrainingItem("Training"));
 
-        AlmatySpinner = view.findViewById(R.id.AlmatySpinner);
-        GrapplingSpinner = view.findViewById(R.id.GrapplingSpinner);
+//        AlmatySpinner = view.findViewById(R.id.AlmatySpinner);
+//        GrapplingSpinner = view.findViewById(R.id.GrapplingSpinner);
 
-        TrainingAdapter adapterAlmaty = new TrainingAdapter(
-                requireContext(),
-                R.layout.custom_spinner_training,
-                R.layout.custom_drop_down_training,
-                trainingItems
-        );
-
-        AlmatySpinner.setAdapter(adapterAlmaty);
-
-
-        TrainingAdapter adapterGrappling = new TrainingAdapter(
-                requireContext(),
-                R.layout.custom_spinner_training,
-                R.layout.custom_drop_down_training,
-                trainingItems
-        );
-
-        GrapplingSpinner.setAdapter(adapterGrappling);
+//        TrainingAdapter adapterAlmaty = new TrainingAdapter(
+//                requireContext(),
+//                R.layout.custom_spinner_training,
+//                R.layout.custom_drop_down_training,
+//                trainingItems
+//        );
+//
+//        AlmatySpinner.setAdapter(adapterAlmaty);
+//
+//
+//        TrainingAdapter adapterGrappling = new TrainingAdapter(
+//                requireContext(),
+//                R.layout.custom_spinner_training,
+//                R.layout.custom_drop_down_training,
+//                trainingItems
+//        );
+//
+//        GrapplingSpinner.setAdapter(adapterGrappling);
     }
 
 }

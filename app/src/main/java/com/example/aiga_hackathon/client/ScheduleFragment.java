@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +19,7 @@ import com.example.aiga_hackathon.R;
  */
 public class ScheduleFragment extends Fragment {
 
-    TextView trainingHeader;
+    LinearLayout trainingHeader;
     LinearLayout trainingExpandable;
 
     // TODO: Rename parameter arguments, choose names that match

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".client.TrainingsFragment">
+    tools:context=".client.TrainingsFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +15,17 @@
             android:text="Training"
             style="@style/PageTitleStyle" />
 
+        <com.example.aiga_hackathon.client.drop_down_list.DropDownListView
+            android:id="@+id/AlmatyDropDownListTraining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerText="Training"/>
 
+        <com.example.aiga_hackathon.client.drop_down_list.DropDownListView
+            android:id="@+id/GrapplingDropDownListTraining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:headerText="Grappling"/>
 
         <TextView
             android:layout_width="wrap_content"

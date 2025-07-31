@@ -4,14 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.aiga_hackathon.R;
-import com.example.aiga_hackathon.client.training.TrainingItem;
+import com.example.aiga_hackathon.client.drop_down_list.TrainingAdapter;
+import com.example.aiga_hackathon.client.drop_down_list.TrainingItem;
+import com.example.aiga_hackathon.client.drop_down_list.DropDownListView;
 
 import java.util.ArrayList;
 
@@ -24,8 +25,7 @@ public class TrainingsFragment extends Fragment {
 
     ArrayList<TrainingItem> trainingItems = new ArrayList<>();
 
-    private Spinner AlmatySpinner;
-    private Spinner GrapplingSpinner;
+    private DropDownListView dropDownListView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,27 +82,15 @@ public class TrainingsFragment extends Fragment {
         trainingItems.add(new TrainingItem("Almaty"));
         trainingItems.add(new TrainingItem("Training"));
 
-//        AlmatySpinner = view.findViewById(R.id.AlmatySpinner);
-//        GrapplingSpinner = view.findViewById(R.id.GrapplingSpinner);
+        dropDownListView = (DropDownListView)view.findViewById(R.id.AlmatyDropDownListTraining);
 
-//        TrainingAdapter adapterAlmaty = new TrainingAdapter(
-//                requireContext(),
-//                R.layout.custom_spinner_training,
-//                R.layout.custom_drop_down_training,
-//                trainingItems
-//        );
-//
-//        AlmatySpinner.setAdapter(adapterAlmaty);
-//
-//
-//        TrainingAdapter adapterGrappling = new TrainingAdapter(
-//                requireContext(),
-//                R.layout.custom_spinner_training,
-//                R.layout.custom_drop_down_training,
-//                trainingItems
-//        );
-//
-//        GrapplingSpinner.setAdapter(adapterGrappling);
+        TrainingAdapter adapterAlmaty = new TrainingAdapter(
+                requireContext(),
+                R.layout.custom_drop_down_training,
+                trainingItems
+        );
+
+        dropDownListView.SetAdapterForList(adapterAlmaty);
     }
 
 }

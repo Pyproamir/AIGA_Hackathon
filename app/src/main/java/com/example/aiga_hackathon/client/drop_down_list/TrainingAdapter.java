@@ -1,4 +1,4 @@
-package com.example.aiga_hackathon.client.training;
+package com.example.aiga_hackathon.client.drop_down_list;
 
 import android.content.Context;
 import android.view.LayoutInflater;

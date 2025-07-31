@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -76,10 +78,11 @@ public class HomeFragment extends Fragment {
 
         profileIcon = view.findViewById(R.id.iv_profile);
         profileIcon.setOnClickListener(v->{
-
+            NavController navController = NavHostFragment.findNavController(this);
+            navController.navigate(R.id.action_homeFragment_to_profileFragment);
         });
 
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return view;
     }
 
 

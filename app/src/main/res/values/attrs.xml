@@ -3,4 +3,8 @@
     <declare-styleable name="DropDownListView">
         <attr name="headerText" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="StoryView">
+        <attr name="Name" format="string" />
+    </declare-styleable>
 </resources>

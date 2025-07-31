@@ -88,6 +88,14 @@
                 android:fontFamily="@font/poppins"
                 android:textSize="14sp"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Classes for this workout"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:background="F1F1F1"/>
+
         </LinearLayout>
     </LinearLayout>
 

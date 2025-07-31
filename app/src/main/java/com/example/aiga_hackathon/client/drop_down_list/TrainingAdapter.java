@@ -27,11 +27,22 @@ public class TrainingAdapter extends ArrayAdapter<TrainingItem>{
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = inflater.inflate(this.layout, parent, false);
 
-        TextView textView = view.findViewById(R.id.drop_down_text_training);
         TrainingItem trainingItem = states.get(position);
 
-        textView.setText(trainingItem.getString());
+        TextView trainingType = view.findViewById(R.id.training_item_training_type);
+        trainingType.setText(trainingType.getText() + trainingItem.getTrainingType());
 
+        TextView trainer = view.findViewById(R.id.training_item_trainer);
+        trainer.setText(trainer.getText() + trainingItem.getTrainer());
+
+        TextView date = view.findViewById(R.id.training_item_date);
+        date.setText(date.getText() + trainingItem.getDate());
+
+        TextView time = view.findViewById(R.id.training_item_time);
+        time.setText(time.getText() + trainingItem.getTime());
+
+        TextView location = view.findViewById(R.id.training_item_location);
+        location.setText(location.getText() + trainingItem.getLocation());
         return view;
     }
 }

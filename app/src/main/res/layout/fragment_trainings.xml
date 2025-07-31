@@ -77,8 +77,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_background_training"
-                android:backgroundTint="@null"
                 android:text="Add Results"
+                android:backgroundTint="@null"
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/poppins"
                 android:textSize="14sp"/>

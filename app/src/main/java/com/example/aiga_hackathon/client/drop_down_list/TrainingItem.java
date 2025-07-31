@@ -1,17 +1,29 @@
 package com.example.aiga_hackathon.client.drop_down_list;
 
 public class TrainingItem {
-    private String string;
+    private String trainingType;
+    private String trainer;
+    private String date;
+    private String time;
+    private String location;
 
-    public TrainingItem(String newString){
-        string = newString;
+    public TrainingItem(String trainingType, String trainer, String date, String time, String location){
+        this.trainingType = trainingType;
+        this.trainer = trainer;
+        this.date = date;
+        this.time = time;
+        this.location = location;
     }
 
-    public String getString(){
-        return string;
-    }
+    public String getTrainingType(){ return trainingType; }
 
-    public void setString(String newString){
-        string = newString;
-    }
+    public String getTrainer(){ return trainer; }
+
+    public String getDate(){ return date; }
+
+    public String getTime(){ return time; }
+
+    public String getLocation(){ return location; }
+
+
 }

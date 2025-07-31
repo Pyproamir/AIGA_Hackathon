@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.aiga_hackathon.R;
+import com.example.aiga_hackathon.client.drop_down_list.DropDownListView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,8 +19,9 @@ import com.example.aiga_hackathon.R;
  */
 public class ScheduleFragment extends Fragment {
 
-    LinearLayout trainingHeader;
-    LinearLayout trainingExpandable;
+    DropDownListView trainingsList;
+    DropDownListView coachesList;
+    DropDownListView locationsList;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,15 +74,10 @@ public class ScheduleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        trainingHeader = view.findViewById(R.id.schedule_training_header);
-        trainingExpandable = view.findViewById(R.id.schedule_training_expandable);
+        trainingsList = view.findViewById(R.id.TrainingsDropDownListSchedule);
+        coachesList = view.findViewById(R.id.CoachesDropDownListSchedule);
+        locationsList = view.findViewById(R.id.LocationsDropDownListSchedule);
 
-        trainingHeader.setOnClickListener(v -> {
-            if (trainingExpandable.getVisibility() == View.GONE) {
-                trainingExpandable.setVisibility(View.VISIBLE);
-            } else {
-                trainingExpandable.setVisibility(View.GONE);
-            }
-        });
+
     }
 }

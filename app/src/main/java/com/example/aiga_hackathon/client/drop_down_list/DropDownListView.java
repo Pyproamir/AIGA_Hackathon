@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,16 +15,19 @@ public class DropDownListView extends LinearLayout {
     private TextView headerText;
     private ListView expandable;
 
+    private ImageView icon;
+
     public DropDownListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
-        LayoutInflater.from(context).inflate(R.layout.training_list_view, this, true);
+        LayoutInflater.from(context).inflate(R.layout.drop_down_list_view, this, true);
 
         headerText = findViewById(R.id.header_text);
-        expandable = (ListView)findViewById(R.id.expandable_content);
+        expandable = findViewById(R.id.expandable_content);
+        icon = findViewById(R.id.triangle_icon);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DropDownListView);
         String text = a.getString(R.styleable.DropDownListView_headerText);
@@ -35,7 +39,9 @@ public class DropDownListView extends LinearLayout {
         findViewById(R.id.header).setOnClickListener(v -> {
             if (expandable.getVisibility() == GONE) {
                 expandable.setVisibility(VISIBLE);
+                icon.setRotation(180);
             } else {
+                icon.setRotation(0);
                 expandable.setVisibility(GONE);
             }
         });

@@ -79,14 +79,25 @@ public class TrainingsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        trainingItems.add(new TrainingItem("Almaty"));
-        trainingItems.add(new TrainingItem("Training"));
+        trainingItems.add(new TrainingItem(
+                "Jiu-Jitsu Training",
+                "Nurlan Algaziz",
+                "2.08.2025",
+                "17:00",
+                "Abylikhan 56"));
 
-        dropDownListView = (DropDownListView)view.findViewById(R.id.AlmatyDropDownListTraining);
+        trainingItems.add(new TrainingItem(
+                "Jiu-Jitsu Training",
+                "Nurlan Algaziz",
+                "3.08.2025",
+                "15:00",
+                "Abylikhan 56"));
+
+        dropDownListView = view.findViewById(R.id.AlmatyDropDownListTraining);
 
         TrainingAdapter adapterAlmaty = new TrainingAdapter(
                 requireContext(),
-                R.layout.custom_drop_down_training,
+                R.layout.custom_drop_down_training_item,
                 trainingItems
         );
 

@@ -5,10 +5,98 @@
     android:layout_height="match_parent"
     tools:context=".client.TrainingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="9dp"
+            android:background="#DA0303"
+            android:text="Training"
+            android:fontFamily="@font/poppins"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/AlmatySpinner"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/GrapplingSpinner"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:fontFamily="@font/poppins"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="13dp"
+            android:text="Grappling-Aug 10"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="12dp"
+            android:background="@drawable/rounded_border"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="13dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#DA0303"
+                    android:text="Training:"
+                    android:textSize="18dp"
+                    android:textStyle="bold"/>
+                
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="9dp"
+                    android:background="#7E848D"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/training_text"
+                android:textColor="#7E848D"
+                android:fontFamily="@font/poppins"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#7E848D"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_background_training"
+                android:backgroundTint="@null"
+                android:text="Add Results"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Classes for this workout"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:background="F1F1F1"/>
+
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

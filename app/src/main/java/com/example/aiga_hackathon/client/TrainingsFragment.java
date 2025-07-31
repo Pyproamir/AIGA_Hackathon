@@ -1,14 +1,20 @@
 package com.example.aiga_hackathon.client;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.aiga_hackathon.R;
+import com.example.aiga_hackathon.client.training.TrainingAdapter;
+import com.example.aiga_hackathon.client.training.TrainingItem;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,11 @@ import com.example.aiga_hackathon.R;
  * create an instance of this fragment.
  */
 public class TrainingsFragment extends Fragment {
+
+    ArrayList<TrainingItem> trainingItems = new ArrayList<>();
+
+    private Spinner AlmatySpinner;
+    private Spinner GrapplingSpinner;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,6 +66,7 @@ public class TrainingsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -63,4 +75,35 @@ public class TrainingsFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_trainings, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        trainingItems.add(new TrainingItem("Almaty"));
+        trainingItems.add(new TrainingItem("Training"));
+
+        AlmatySpinner = view.findViewById(R.id.AlmatySpinner);
+        GrapplingSpinner = view.findViewById(R.id.GrapplingSpinner);
+
+        TrainingAdapter adapterAlmaty = new TrainingAdapter(
+                requireContext(),
+                R.layout.custom_spinner_training,
+                R.layout.custom_drop_down_training,
+                trainingItems
+        );
+
+        AlmatySpinner.setAdapter(adapterAlmaty);
+
+
+        TrainingAdapter adapterGrappling = new TrainingAdapter(
+                requireContext(),
+                R.layout.custom_spinner_training,
+                R.layout.custom_drop_down_training,
+                trainingItems
+        );
+
+        GrapplingSpinner.setAdapter(adapterGrappling);
+    }
+
 }

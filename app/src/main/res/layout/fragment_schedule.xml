@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".client.ScheduleFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".client.ScheduleFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="9dp"
+        android:background="#DA0303"
+        android:text="Training"
+        android:fontFamily="@font/poppins"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Заголовок списка -->
+        <TextView
+            android:id="@+id/schedule_training_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Нажми, чтобы открыть"
+            android:padding="16dp"
+            android:background="#DDDDDD"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/schedule_training_expadable"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:padding="16dp"
+            android:background="#F5F5F5">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Пункт 1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Пункт 2" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.ak.KalendarView
+        android:id="@+id/kalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        app:calendarBackground="#FFFFFF"
+        app:todayDateColor="#027DB5"/>
+
+
+
+</LinearLayout>

@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
         profileIcon = view.findViewById(R.id.iv_profile);
         profileIcon.setOnClickListener(v->{
             NavController navController = NavHostFragment.findNavController(this);
-            navController.navigate(R.id.action_homeFragment_to_profileFragment);
+            navController.navigate(R.id.action_homeFragment_to_profileActivity);
         });
 
         return view;

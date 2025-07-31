@@ -9,8 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.ak.KalendarView;
 import com.example.aiga_hackathon.R;
 import com.example.aiga_hackathon.client.drop_down_list.DropDownListView;
+import com.example.aiga_hackathon.client.drop_down_list.TrainingAdapter;
+import com.example.aiga_hackathon.client.drop_down_list.TrainingItem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +29,8 @@ public class ScheduleFragment extends Fragment {
     DropDownListView trainingsList;
     DropDownListView coachesList;
     DropDownListView locationsList;
+
+    KalendarView calendar;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,11 +82,37 @@ public class ScheduleFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        calendar = view.findViewById(R.id.calendar);
 
         trainingsList = view.findViewById(R.id.TrainingsDropDownListSchedule);
         coachesList = view.findViewById(R.id.CoachesDropDownListSchedule);
         locationsList = view.findViewById(R.id.LocationsDropDownListSchedule);
 
+        List<TrainingItem> trainingItems = new ArrayList<>(Arrays.asList(
+                new TrainingItem(
+                        "Swimming",
+                        "Serik Amir",
+                        "26.01.2025",
+                        "10:00",
+                        "Amir's Home"
+                )
+        ));
 
+
+        calendar.setDateSelector(selectedDate -> trainingItems.add(new TrainingItem(
+                "Swimming",
+                "Serik Amir",
+                selectedDate.toString(),
+                "10:00",
+                "Amir's Home"
+        )));
+
+        TrainingAdapter trainingAdapter = new TrainingAdapter(
+                getContext(),
+                R.layout.custom_drop_down_training_item,
+                trainingItems
+        );
+
+        trainingsList.SetAdapterForList(trainingAdapter);
     }
 }

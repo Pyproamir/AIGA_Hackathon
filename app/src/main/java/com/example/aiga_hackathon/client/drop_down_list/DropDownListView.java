@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -47,7 +48,8 @@ public class DropDownListView extends LinearLayout {
         });
     }
 
-    public void SetAdapterForList(TrainingAdapter adapter){
+
+    public <T> void SetAdapterForList(ArrayAdapter<T> adapter){
         expandable.setAdapter(adapter);
     }
 }

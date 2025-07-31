@@ -1,8 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.AIGA_Hackathon" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryVariant">@android:color/transparent</item>
+        <item name="colorOnPrimary">@android:color/black</item>
+
+        <item name="colorSecondary">@android:color/transparent</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+
+        <!-- Убираем elevation и action bar -->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="Theme.AIGA_Hackathon" parent="Base.Theme.AIGA_Hackathon" />

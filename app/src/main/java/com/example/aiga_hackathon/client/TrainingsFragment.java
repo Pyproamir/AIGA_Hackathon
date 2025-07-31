@@ -101,7 +101,7 @@ public class TrainingsFragment extends Fragment {
                 trainingItems
         );
 
-        dropDownListView.SetAdapterForList(adapterAlmaty);
+        dropDownListView.<TrainingItem>SetAdapterForList(adapterAlmaty);
     }
 
 }

@@ -4,7 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.aiga_hackathon.R;
@@ -16,7 +20,8 @@ import com.example.aiga_hackathon.R;
  */
 public class ScheduleFragment extends Fragment {
 
-
+    TextView trainingHeader;
+    LinearLayout trainingExpandable;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,5 +68,21 @@ public class ScheduleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_schedule, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        trainingHeader = view.findViewById(R.id.schedule_training_header);
+        trainingExpandable = view.findViewById(R.id.schedule_training_expandable);
+
+        trainingHeader.setOnClickListener(v -> {
+            if (trainingExpandable.getVisibility() == View.GONE) {
+                trainingExpandable.setVisibility(View.VISIBLE);
+            } else {
+                trainingExpandable.setVisibility(View.GONE);
+            }
+        });
     }
 }

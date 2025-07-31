@@ -2,8 +2,10 @@ package com.example.aiga_hackathon.client.story_view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +14,8 @@ import com.example.aiga_hackathon.R;
 public class StoryView extends LinearLayout {
 
     private TextView storyName;
+
+    private ImageView imagePfp;
 
     public StoryView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -27,6 +31,7 @@ public class StoryView extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.story_view, this, true);
 
         storyName = findViewById(R.id.StoryName);
+        imagePfp = findViewById(R.id.StoryPFP);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.StoryView);
 
@@ -41,6 +46,10 @@ public class StoryView extends LinearLayout {
 
     public void setStoryName(String name){
         storyName.setText(name);
+    }
+
+    public void setPfp(Drawable drawable){
+        imagePfp.setImageDrawable(drawable);
     }
 }
 

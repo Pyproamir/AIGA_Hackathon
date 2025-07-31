@@ -76,11 +76,10 @@
                 android:textAlignment="center"/>
         </LinearLayout>
 
-        <com.example.aiga_hackathon.client.story_view.StoryView
-            android:id="@+id/StoryTest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:Name="Amir"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/StoryLent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

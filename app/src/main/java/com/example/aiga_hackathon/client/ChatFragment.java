@@ -8,8 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aiga_hackathon.R;
+import com.example.aiga_hackathon.client.story_view.StoryAdapter;
+import com.example.aiga_hackathon.client.story_view.StoryItem;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,6 +58,18 @@ public class ChatFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        RecyclerView storyLent = view.findViewById(R.id.StoryLent);
+        storyLent.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        ArrayList<StoryItem> storyItems = new ArrayList<>();
+        storyItems.add(new StoryItem(getContext(), "Amir", R.drawable.amir));
+        storyItems.add(new StoryItem(getContext(), "Argyn", R.drawable.ic_client));
+        storyItems.add(new StoryItem(getContext(), "Aligaziz", R.drawable.amir));
+
+        StoryAdapter storyAdapter = new StoryAdapter(getContext(), storyItems);
+        storyLent.setAdapter(storyAdapter);
 
     }
 }

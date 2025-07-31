@@ -1,9 +1,11 @@
 package com.example.aiga_hackathon.client;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,8 +17,10 @@ import com.example.aiga_hackathon.client.drop_down_list.DropDownListView;
 import com.example.aiga_hackathon.client.drop_down_list.TrainingAdapter;
 import com.example.aiga_hackathon.client.drop_down_list.TrainingItem;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +33,8 @@ public class ScheduleFragment extends Fragment {
     DropDownListView trainingsList;
     DropDownListView coachesList;
     DropDownListView locationsList;
+
+    ListView availableTrainingsList;
 
     KalendarView calendar;
 
@@ -82,11 +88,17 @@ public class ScheduleFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Date initialDate = new Date(125, 7, 1);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+
         calendar = view.findViewById(R.id.calendar);
+        calendar.setInitialSelectedDate(initialDate);
 
         trainingsList = view.findViewById(R.id.TrainingsDropDownListSchedule);
         coachesList = view.findViewById(R.id.CoachesDropDownListSchedule);
         locationsList = view.findViewById(R.id.LocationsDropDownListSchedule);
+
+        availableTrainingsList = view.findViewById(R.id.AvailableTrainingListView);
 
         List<TrainingItem> trainingItems = new ArrayList<>(Arrays.asList(
                 new TrainingItem(
@@ -98,15 +110,6 @@ public class ScheduleFragment extends Fragment {
                 )
         ));
 
-
-        calendar.setDateSelector(selectedDate -> trainingItems.add(new TrainingItem(
-                "Swimming",
-                "Serik Amir",
-                selectedDate.toString(),
-                "10:00",
-                "Amir's Home"
-        )));
-
         TrainingAdapter trainingAdapter = new TrainingAdapter(
                 getContext(),
                 R.layout.custom_drop_down_training_item,
@@ -114,5 +117,40 @@ public class ScheduleFragment extends Fragment {
         );
 
         trainingsList.SetAdapterForList(trainingAdapter);
+
+
+
+        List<TrainingItem> availableTrainingItems = new ArrayList<>(Arrays.asList(
+                new TrainingItem(
+                        "Swimming",
+                        "Serik Amir",
+                        sdf.format(initialDate),
+                        "10:00",
+                        "Amir's Home"
+                )
+        ));
+
+        TrainingAdapter availableTrainingAdapter = new TrainingAdapter(
+                getContext(),
+                R.layout.custom_drop_down_training_item,
+                availableTrainingItems
+        );
+
+        availableTrainingsList.setAdapter(availableTrainingAdapter);
+
+
+        calendar.setDateSelector(selectedDate -> {
+                availableTrainingAdapter.clear();
+                availableTrainingAdapter.add(
+                        new TrainingItem(
+                        "Swimming",
+                        "Serik Amir",
+                        sdf.format(selectedDate),
+                        "10:00",
+                        "Amir's Home")
+                );
+                availableTrainingAdapter.notifyDataSetChanged();
+            }
+        );
     }
 }

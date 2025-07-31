@@ -49,7 +49,7 @@ public class DropDownListView extends LinearLayout {
     }
 
 
-    public <T> void SetAdapterForList(ArrayAdapter<T> adapter){
+    public void SetAdapterForList(TrainingAdapter adapter){
         expandable.setAdapter(adapter);
     }
 }

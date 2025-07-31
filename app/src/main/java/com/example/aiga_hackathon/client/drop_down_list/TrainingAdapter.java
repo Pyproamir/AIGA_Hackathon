@@ -30,19 +30,19 @@ public class TrainingAdapter extends ArrayAdapter<TrainingItem>{
         TrainingItem trainingItem = states.get(position);
 
         TextView trainingType = view.findViewById(R.id.training_item_training_type);
-        trainingType.setText(trainingType.getText() + trainingItem.getTrainingType());
+        trainingType.setText("🔥" + trainingItem.getTrainingType());
 
         TextView trainer = view.findViewById(R.id.training_item_trainer);
-        trainer.setText(trainer.getText() + trainingItem.getTrainer());
+        trainer.setText("Trainer: " + trainingItem.getTrainer());
 
         TextView date = view.findViewById(R.id.training_item_date);
-        date.setText(date.getText() + trainingItem.getDate());
+        date.setText("Date: " + trainingItem.getDate());
 
         TextView time = view.findViewById(R.id.training_item_time);
-        time.setText(time.getText() + trainingItem.getTime());
+        time.setText("Time: " + trainingItem.getTime());
 
         TextView location = view.findViewById(R.id.training_item_location);
-        location.setText(location.getText() + trainingItem.getLocation());
+        location.setText("Location: " + trainingItem.getLocation());
         return view;
     }
 }

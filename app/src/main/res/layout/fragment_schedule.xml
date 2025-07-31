@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:minHeight="1000dp"
-    android:layout_height="wrap_content"
+    android:minHeight="1500dp"
+    android:layout_height="match_parent"
     >
     <LinearLayout
-        android:minHeight="1000dp"
+        android:minHeight="1500dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -54,6 +54,11 @@
             android:textSize="18sp"
             android:text="Trainings available:"
             android:layout_marginLeft="13dp"/>
+
+        <ListView
+            android:id="@+id/AvailableTrainingListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>

@@ -6,7 +6,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.aiga_hackathon.client.HomeFragment">
         <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
+            android:id="@+id/action_homeFragment_to_profileActivity"
             app:destination="@id/profileFragment" />
     </fragment>
 

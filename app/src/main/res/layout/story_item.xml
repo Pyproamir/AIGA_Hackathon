@@ -7,5 +7,6 @@
     <com.example.aiga_hackathon.client.story_view.StoryView
         android:id="@+id/StoryView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:Name="Amir"/>
 </LinearLayout>

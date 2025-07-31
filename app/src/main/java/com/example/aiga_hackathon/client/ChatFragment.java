@@ -64,12 +64,15 @@ public class ChatFragment extends Fragment {
         storyLent.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         ArrayList<StoryItem> storyItems = new ArrayList<>();
-        storyItems.add(new StoryItem(getContext(), "Amir", R.drawable.amir));
-        storyItems.add(new StoryItem(getContext(), "Argyn", R.drawable.ic_client));
+        storyItems.add(new StoryItem(getContext(), "Your Story", R.drawable.ic_plus, false));
+        storyItems.add(new StoryItem(getContext(), "Argyn", R.drawable.amir));
         storyItems.add(new StoryItem(getContext(), "Aligaziz", R.drawable.amir));
+        storyItems.add(new StoryItem(getContext(), "Eyrsal", R.drawable.amir));
+        storyItems.add(new StoryItem(getContext(), "Ibrahim", R.drawable.amir));
+        storyItems.add(new StoryItem(getContext(), "Maga", R.drawable.amir));
+        storyItems.add(new StoryItem(getContext(), "Adele", R.drawable.amir));
 
         StoryAdapter storyAdapter = new StoryAdapter(getContext(), storyItems);
         storyLent.setAdapter(storyAdapter);
-
     }
 }

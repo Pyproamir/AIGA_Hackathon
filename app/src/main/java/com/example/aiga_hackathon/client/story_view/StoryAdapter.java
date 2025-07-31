@@ -1,6 +1,7 @@
 package com.example.aiga_hackathon.client.story_view;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +33,17 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
     @Override
     public void onBindViewHolder(@NonNull StoryViewHolder holder, int position) {
         StoryItem item = storyItems.get(position);
+
+        if(position == 0){
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.storyView.getLayoutParams();
+            params.setMarginStart((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                    24, context.getResources().getDisplayMetrics()));
+            holder.storyView.setLayoutParams(params);
+        }
+
         holder.storyView.setStoryName(item.getName());
         holder.storyView.setPfp(item.getPfp());
+        holder.storyView.setActive(item.getActive());
     }
 
     @Override

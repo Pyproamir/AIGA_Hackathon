@@ -24,6 +24,7 @@ import com.example.aiga_hackathon.client.profile.ProfileActivity;
 import com.example.aiga_hackathon.client.trainer_list.TrainerListAdapter;
 import com.example.aiga_hackathon.client.trainer_list.TrainerListModel;
 import com.example.aiga_hackathon.client.trainer_list.TrainerListViewModel;
+import com.example.aiga_hackathon.client.virtualCharacter.VirtualCharacterActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ public class HomeFragment extends Fragment {
     private TrainerListAdapter trainerListAdapter;
     private EventAdapter eventAdapter;
     private EventViewModel eventViewModel;
-    private ImageView profileIcon;
+    private ImageView profileIcon, vcButton;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -102,6 +103,11 @@ public class HomeFragment extends Fragment {
         profileIcon = view.findViewById(R.id.iv_profile);
         profileIcon.setOnClickListener(v->{
             startActivity(new Intent(requireContext(), ProfileActivity.class));
+        });
+
+        vcButton = view.findViewById(R.id.iv_vc_button);
+        vcButton.setOnClickListener(v->{
+            startActivity(new Intent(requireContext(), VirtualCharacterActivity.class));
         });
 
         return view;

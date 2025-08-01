@@ -1,9 +1,15 @@
 package com.example.aiga_hackathon.client;
 
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +33,13 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class ChatFragment extends Fragment {
+
+    private RecyclerView storyLent;
+    private StoryAdapter storyAdapter;
+    private StoryAdapter.OnStoryClickListener onStoryClickListener;
+
+    private RecyclerView chatLent;
+
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -64,9 +77,46 @@ public class ChatFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView storyLent = view.findViewById(R.id.StoryLent);
+        LinearLayout chatLayout = view.findViewById(R.id.ChatLayout);
+
+        FrameLayout fullscreenContainer = view.findViewById(R.id.story_fullscreen_container);
+        ImageView storyImage = view.findViewById(R.id.story_image);
+        ProgressBar progressBar = view.findViewById(R.id.story_progress);
+
+        storyLent = view.findViewById(R.id.StoryLent);
         storyLent.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
+        chatLent = view.findViewById(R.id.ChatLent);
+        chatLent.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        onStoryClickListener = new StoryAdapter.OnStoryClickListener() {
+            @Override
+            public void onStoryClick(StoryItem storyItem, int position) {
+                chatLayout.setVisibility(View.GONE);
+                storyImage.setImageDrawable(ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.amir));
+                fullscreenContainer.setVisibility(View.VISIBLE);
+                progressBar.setProgress(0);
+                ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", 0, 100);
+                animator.setDuration(3000);
+                animator.start();
+
+                new Handler().postDelayed(() -> {
+                    chatLayout.setVisibility(View.VISIBLE);
+                    fullscreenContainer.setVisibility(View.GONE);
+                }, 3000);
+            }
+        };
+
+        SetStories();
+        SetChatItems();
+
+
+
+    }
+
+    private void SetStories(){
         ArrayList<StoryItem> storyItems = new ArrayList<>();
         storyItems.add(new StoryItem(getContext(), "Your Story", R.drawable.ic_plus, false));
         storyItems.add(new StoryItem(getContext(), "Argyn", R.drawable.amir));
@@ -76,10 +126,15 @@ public class ChatFragment extends Fragment {
         storyItems.add(new StoryItem(getContext(), "Maga", R.drawable.amir));
         storyItems.add(new StoryItem(getContext(), "Adele", R.drawable.amir));
 
-        StoryAdapter storyAdapter = new StoryAdapter(getContext(), storyItems);
+        storyAdapter = new StoryAdapter(
+                getContext(),
+                storyItems,
+                onStoryClickListener
+        );
         storyLent.setAdapter(storyAdapter);
+    }
 
-        RecyclerView chatLent = view.findViewById(R.id.ChatLent);
+    private void SetChatItems(){
         List<ChatItem> chatItems = new ArrayList<>();
 
         chatItems.add(new ChatItem(
@@ -129,8 +184,7 @@ public class ChatFragment extends Fragment {
                 chatItems
         );
 
-        chatLent.setLayoutManager(new LinearLayoutManager(getContext()));
-        chatLent.setAdapter(chatAdapter);
 
+        chatLent.setAdapter(chatAdapter);
     }
 }

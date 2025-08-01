@@ -14,12 +14,19 @@ import com.example.aiga_hackathon.R;
 import java.util.List;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHolder> {
+    public interface OnStoryClickListener{
+        void onStoryClick(StoryItem storyItem, int position);
+    }
+    private final OnStoryClickListener onStoryClickListener;
     private List<StoryItem> storyItems;
     private Context context;
 
-    public StoryAdapter(Context context, List<StoryItem> storyItems) {
+
+
+    public StoryAdapter(Context context, List<StoryItem> storyItems, OnStoryClickListener onStoryClickListener) {
         this.context = context;
         this.storyItems = storyItems;
+        this.onStoryClickListener = onStoryClickListener;
     }
 
     @NonNull
@@ -44,6 +51,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
         holder.storyView.setStoryName(item.getName());
         holder.storyView.setPfp(item.getPfp());
         holder.storyView.setActive(item.getActive());
+
+        holder.storyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onStoryClickListener.onStoryClick(item, position);
+            }
+        });
     }
 
     @Override
@@ -56,7 +70,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
 
         public StoryViewHolder(@NonNull View itemView) {
             super(itemView);
-            storyView = itemView.findViewById(R.id.StoryView); // assumes R.id.StoryView is inside item_story.xml
+            storyView = itemView.findViewById(R.id.StoryView);
         }
     }
 }

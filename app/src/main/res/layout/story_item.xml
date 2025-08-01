@@ -8,5 +8,5 @@
         android:id="@+id/StoryView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:Name="Amir"/>
+        app:Name="Your Story"/>
 </LinearLayout>

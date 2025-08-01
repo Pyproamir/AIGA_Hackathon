@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.aiga_hackathon.client.drop_down_list.chats.ChatItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ChatItemView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    />

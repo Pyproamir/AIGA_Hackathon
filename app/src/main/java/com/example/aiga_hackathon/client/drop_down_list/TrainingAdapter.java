@@ -14,11 +14,11 @@ import java.util.List;
 public class TrainingAdapter extends ArrayAdapter<TrainingItem>{
     private LayoutInflater inflater;
     private int layout;
-    private List<TrainingItem> states;
+    private List<TrainingItem> trainingItems;
 
-    public TrainingAdapter(Context context, int resource, List<TrainingItem> states) {
-        super(context, resource, states);
-        this.states = states;
+    public TrainingAdapter(Context context, int resource, List<TrainingItem> trainingItems) {
+        super(context, resource, trainingItems);
+        this.trainingItems = trainingItems;
         layout = resource;
         this.inflater = LayoutInflater.from(context);
     }
@@ -27,7 +27,7 @@ public class TrainingAdapter extends ArrayAdapter<TrainingItem>{
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = inflater.inflate(this.layout, parent, false);
 
-        TrainingItem trainingItem = states.get(position);
+        TrainingItem trainingItem = trainingItems.get(position);
 
         TextView trainingType = view.findViewById(R.id.training_item_training_type);
         trainingType.setText("🔥" + trainingItem.getTrainingType());

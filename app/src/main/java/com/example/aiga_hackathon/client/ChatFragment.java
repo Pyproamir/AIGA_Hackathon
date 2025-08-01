@@ -7,15 +7,19 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aiga_hackathon.R;
+import com.example.aiga_hackathon.client.drop_down_list.chats.ChatItem;
+import com.example.aiga_hackathon.client.drop_down_list.chats.ChatRecyclerAdapter;
 import com.example.aiga_hackathon.client.story_view.StoryAdapter;
 import com.example.aiga_hackathon.client.story_view.StoryItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,5 +78,66 @@ public class ChatFragment extends Fragment {
 
         StoryAdapter storyAdapter = new StoryAdapter(getContext(), storyItems);
         storyLent.setAdapter(storyAdapter);
+
+        RecyclerView chatLent = view.findViewById(R.id.ChatLent);
+        List<ChatItem> chatItems = new ArrayList<>();
+
+        chatItems.add(new ChatItem(
+                ContextCompat.getDrawable(getContext(), R.drawable.ic_trainer),
+                "Amir",
+                "I wanna ask you out",
+                "1",
+                "Today"));
+
+        chatItems.add(new ChatItem(
+                ContextCompat.getDrawable(getContext(), R.drawable.auditory),
+                "Aligaziz",
+                "WHATZ UP",
+                "1",
+                "Today"));
+
+        chatItems.add(new ChatItem(
+                ContextCompat.getDrawable(getContext(), R.drawable.amir),
+                "Yersal",
+                "Го вало",
+                "99",
+                "Today"));
+
+        chatItems.add(new ChatItem(
+                ContextCompat.getDrawable(getContext(), R.drawable.amir),
+                "Magzhan",
+                "I love Valo",
+                "12",
+                "Today"));
+
+        chatItems.add(new ChatItem(
+                ContextCompat.getDrawable(getContext(), R.drawable.amir),
+                "Cyboo2010",
+                "I love Valo",
+                "2",
+                "Today"));
+
+        chatItems.add(new ChatItem(
+                ContextCompat.getDrawable(getContext(), R.drawable.amir),
+                "Arsen",
+                "Almaty is world capital",
+                "1",
+                "Today"));
+
+        chatItems.add(new ChatItem(
+                ContextCompat.getDrawable(getContext(), R.drawable.amir),
+                "Zhanel Genshin",
+                "Shut the fuck up",
+                "1",
+                "Today"));
+
+        ChatRecyclerAdapter chatAdapter = new ChatRecyclerAdapter(
+                getContext(),
+                chatItems
+        );
+
+        chatLent.setLayoutManager(new LinearLayoutManager(getContext()));
+        chatLent.setAdapter(chatAdapter);
+
     }
 }

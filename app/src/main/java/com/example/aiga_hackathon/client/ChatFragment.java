@@ -15,14 +15,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aiga_hackathon.R;
+import com.example.aiga_hackathon.client.chat.ChatView;
 import com.example.aiga_hackathon.client.drop_down_list.chats.ChatItem;
 import com.example.aiga_hackathon.client.drop_down_list.chats.ChatRecyclerAdapter;
 import com.example.aiga_hackathon.client.story_view.StoryAdapter;
 import com.example.aiga_hackathon.client.story_view.StoryItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +42,9 @@ public class ChatFragment extends Fragment {
     private StoryAdapter.OnStoryClickListener onStoryClickListener;
 
     private RecyclerView chatLent;
+    private ChatRecyclerAdapter chatAdapter;
+    private ChatRecyclerAdapter.OnChatClickListener onChatClickListener;
+
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -77,14 +83,39 @@ public class ChatFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        LinearLayout chatLayout = view.findViewById(R.id.ChatLayout);
+        BottomNavigationView navBar = requireActivity().findViewById(R.id.client_bottom_nav);
 
-        FrameLayout fullscreenContainer = view.findViewById(R.id.story_fullscreen_container);
+        LinearLayout frameFullscreen = view.findViewById(R.id.ChatLayout);
+
+        FrameLayout storyFullscreen = view.findViewById(R.id.story_fullscreen_container);
         ImageView storyImage = view.findViewById(R.id.story_image);
         ProgressBar progressBar = view.findViewById(R.id.story_progress);
 
+        FrameLayout chatFullscreen = view.findViewById(R.id.chat_fullscreen_container);
+        ChatView chatView = view.findViewById(R.id.ChatView);
+
+        chatView.setBackButtonClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                storyFullscreen.setVisibility(View.GONE);
+                chatFullscreen.setVisibility(View.GONE);
+                frameFullscreen.setVisibility(View.VISIBLE);
+            }
+        });
+
         storyLent = view.findViewById(R.id.StoryLent);
         storyLent.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        onChatClickListener = new ChatRecyclerAdapter.OnChatClickListener() {
+            @Override
+            public void onChatClickListener(ChatItem chatItem, int position) {
+                chatView.setChatPFP(chatItem.pfp);
+                chatView.setUserName(chatItem.userName);
+
+                frameFullscreen.setVisibility(View.GONE);
+                chatFullscreen.setVisibility(View.VISIBLE);
+            }
+        };
 
         chatLent = view.findViewById(R.id.ChatLent);
         chatLent.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -92,19 +123,39 @@ public class ChatFragment extends Fragment {
         onStoryClickListener = new StoryAdapter.OnStoryClickListener() {
             @Override
             public void onStoryClick(StoryItem storyItem, int position) {
-                chatLayout.setVisibility(View.GONE);
+                if(position == 0) return;
+
+                navBar.setVisibility(View.GONE);
+                frameFullscreen.setVisibility(View.GONE);
                 storyImage.setImageDrawable(ContextCompat.getDrawable(
                         requireContext(),
                         R.drawable.amir));
-                fullscreenContainer.setVisibility(View.VISIBLE);
+
+                storyFullscreen.setAlpha(0f);
+                storyFullscreen.setVisibility(View.INVISIBLE); // Сначала невидим
+
+                storyFullscreen.post(() -> {
+                    storyFullscreen.setTranslationY(-storyFullscreen.getHeight());
+                    storyFullscreen.setVisibility(View.VISIBLE);
+
+                    storyFullscreen.animate()
+                            .translationY(0f)
+                            .alpha(1f)
+                            .setDuration(400)
+                            .setInterpolator(new FastOutLinearInInterpolator())
+                            .start();
+                });
+
+
                 progressBar.setProgress(0);
                 ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", 0, 100);
                 animator.setDuration(3000);
                 animator.start();
 
                 new Handler().postDelayed(() -> {
-                    chatLayout.setVisibility(View.VISIBLE);
-                    fullscreenContainer.setVisibility(View.GONE);
+                    frameFullscreen.setVisibility(View.VISIBLE);
+                    navBar.setVisibility(View.VISIBLE);
+                    storyFullscreen.setVisibility(View.GONE);
                 }, 3000);
             }
         };
@@ -179,9 +230,10 @@ public class ChatFragment extends Fragment {
                 "1",
                 "Today"));
 
-        ChatRecyclerAdapter chatAdapter = new ChatRecyclerAdapter(
+        chatAdapter = new ChatRecyclerAdapter(
                 getContext(),
-                chatItems
+                chatItems,
+                onChatClickListener
         );
 
 

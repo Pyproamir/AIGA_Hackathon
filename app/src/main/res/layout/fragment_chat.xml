@@ -3,6 +3,30 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/story_fullscreen_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:visibility="gone"
+        android:elevation="10dp">
+
+        <ImageView
+            android:id="@+id/story_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ProgressBar
+            android:id="@+id/story_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_gravity="top"
+            android:progressTint="#ffffff" />
+    </FrameLayout>
+
     <LinearLayout
         android:id="@+id/ChatLayout"
         android:layout_width="match_parent"
@@ -68,25 +92,15 @@
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/story_fullscreen_container"
+        android:id="@+id/chat_fullscreen_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000"
-        android:visibility="gone"
-        android:elevation="10dp">
-
-        <ImageView
-            android:id="@+id/story_image"
+        android:visibility="gone">
+        <com.example.aiga_hackathon.client.chat.ChatView
+            android:id="@+id/ChatView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
-
-        <ProgressBar
-            android:id="@+id/story_progress"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_gravity="top"
-            android:progressTint="#ffffff" />
+            android:layout_height="match_parent"/>
     </FrameLayout>
+
+
 </FrameLayout>

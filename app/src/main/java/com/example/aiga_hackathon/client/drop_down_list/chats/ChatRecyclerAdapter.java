@@ -13,12 +13,18 @@ import com.example.aiga_hackathon.R;
 import java.util.List;
 
 public class ChatRecyclerAdapter extends RecyclerView.Adapter<ChatRecyclerAdapter.ChatViewHolder> {
+    public interface OnChatClickListener{
+        public void onChatClickListener(ChatItem chatItem, int position);
+    }
+
     private List<ChatItem> chatItems;
     private LayoutInflater inflater;
+    private OnChatClickListener onChatClickListener;
 
-    public ChatRecyclerAdapter(Context context, List<ChatItem> chatItems) {
+    public ChatRecyclerAdapter(Context context, List<ChatItem> chatItems, OnChatClickListener onChatClickListener) {
         this.chatItems = chatItems;
         this.inflater = LayoutInflater.from(context);
+        this.onChatClickListener = onChatClickListener;
     }
 
     @NonNull
@@ -37,6 +43,13 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<ChatRecyclerAdapte
         holder.chatItemView.setMessage(chatItem.message);
         holder.chatItemView.setDateLastMessageArriveTextView(chatItem.dateLastMessageArrive);
         holder.chatItemView.setNumberOfNewMessagesTextView(chatItem.numberOfNewMessages);
+
+        holder.chatItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onChatClickListener.onChatClickListener(chatItem, position);
+            }
+        });
     }
 
     @Override

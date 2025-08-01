@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="5dp"
+        android:background="#DA0303">
+
+        <ImageView
+            android:id="@+id/ChatBackButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_arrow"
+            android:layout_gravity="center_vertical"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="4dp"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            app:cardCornerRadius="23dp"
+            android:layout_gravity="center_vertical">
+            <ImageView
+                android:id="@+id/ChatPFP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/amir"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/ChatUserName"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppins"
+            android:text="Amir"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ChatMessageRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

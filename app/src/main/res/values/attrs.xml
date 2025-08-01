@@ -10,4 +10,10 @@
 
     <declare-styleable name="ChatItemView">
     </declare-styleable>
+
+    <declare-styleable name="ChatView">
+    </declare-styleable>
+
+    <declare-styleable name="MessageView">
+    </declare-styleable>
 </resources>

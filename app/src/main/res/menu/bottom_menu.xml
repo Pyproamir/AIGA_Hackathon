@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/homeFragment" android:icon="@drawable/ic_home" android:title="Home"/>
-    <item android:id="@+id/trainingsFragment" android:icon="@drawable/ic_trainings" android:title="Trainings"/>
     <item android:id="@+id/scheduleFragment" android:icon="@drawable/ic_schedule" android:title="Schedule"/>
+    <item android:id="@+id/trainingsFragment" android:icon="@drawable/ic_trainings" android:title="Trainings"/>
     <item android:id="@+id/buyFragment" android:icon="@drawable/ic_buy" android:title="Buy"/>
     <item android:id="@+id/chatFragment" android:icon="@drawable/ic_chat" android:title="Chat"/>
 

@@ -1,5 +1,7 @@
 package com.example.aiga_hackathon.client;
 
+import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,12 +18,15 @@ import android.widget.ImageView;
 
 import com.example.aiga_hackathon.R;
 import com.example.aiga_hackathon.client.events.EventAdapter;
+import com.example.aiga_hackathon.client.events.EventModel;
 import com.example.aiga_hackathon.client.events.EventViewModel;
+import com.example.aiga_hackathon.client.profile.ProfileActivity;
 import com.example.aiga_hackathon.client.trainer_list.TrainerListAdapter;
 import com.example.aiga_hackathon.client.trainer_list.TrainerListModel;
 import com.example.aiga_hackathon.client.trainer_list.TrainerListViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -56,10 +61,18 @@ public class HomeFragment extends Fragment {
         trainerListAdapter = new TrainerListAdapter(this, new ArrayList<>(), trainerListViewModel);
         trainerListRecycler.setAdapter(trainerListAdapter);
 
-        trainerListViewModel.getTrainers().observe(getViewLifecycleOwner(), trainerList->{
-            trainerListAdapter.setTrainerList(trainerList);
+        List<TrainerListModel> trainerListModels = new ArrayList<>();
+        trainerListModels.add(new TrainerListModel(R.drawable.trainer_list_1,
+                "Marcos A.", "K&A groups", 4.9F));
+        trainerListModels.add(new TrainerListModel(R.drawable.trainer_list_2,
+                "Ruslan I.", "A group", 4.8F));
+        trainerListAdapter.setTrainerList(trainerListModels);
+        trainerListAdapter.notifyDataSetChanged();
+
+        /*trainerListViewModel.getTrainers().observe(getViewLifecycleOwner(), trainerList->{
+            trainerListAdapter.setTrainerList(trainerListModels);
             trainerListAdapter.notifyDataSetChanged();
-        });
+        });*/
 
         //___
         eventsRecycler = view.findViewById(R.id.events_recyclerView);
@@ -67,19 +80,28 @@ public class HomeFragment extends Fragment {
 
         eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         eventsRecycler.setHasFixedSize(true);
+        VerticalSpaceItemDecoration verticalSpaceItemDecoration = new VerticalSpaceItemDecoration(16);
+        eventsRecycler.addItemDecoration(verticalSpaceItemDecoration);
 
         eventAdapter = new EventAdapter(this, new ArrayList<>(), eventViewModel);
         eventsRecycler.setAdapter(eventAdapter);
 
-        eventViewModel.getEvents().observe(getViewLifecycleOwner(), eventModels -> {
+        List<EventModel> eventModels = new ArrayList<>();
+        eventModels.add(new EventModel("https://smoothcomp.com/pictures/t/6004061-t5lo/kubok-respubliki-kazaxstan-po-grepplingu-aiga-sredi-iunisei-iuniorov-molodezi-i-vzroslyx-2025.jpg",
+                true, false, "Almaty Konayev Jiu-Jitsu Cup"));
+        eventModels.add(new EventModel("https://smoothcomp.com/pictures/t/761454-3qjd/chempionat-respubliki-kazakhstan-po-grepplingu-aiga-sredi-vzroslykh-2020.jpg",
+                false, true, "Almaty Konayev Jiu-Jitsu Cup"));
+
+        eventAdapter.setEvents(eventModels);
+        eventAdapter.notifyDataSetChanged();
+        /*eventViewModel.getEvents().observe(getViewLifecycleOwner(), eventModels -> {
             eventAdapter.setEvents(eventModels);
             eventAdapter.notifyDataSetChanged();
-        });
+        });*/
 
         profileIcon = view.findViewById(R.id.iv_profile);
         profileIcon.setOnClickListener(v->{
-            NavController navController = NavHostFragment.findNavController(this);
-            navController.navigate(R.id.action_homeFragment_to_profileActivity);
+            startActivity(new Intent(requireContext(), ProfileActivity.class));
         });
 
         return view;
@@ -90,3 +112,4 @@ public class HomeFragment extends Fragment {
 
 
 }
+

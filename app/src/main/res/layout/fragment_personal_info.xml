@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".client.profile.ProfileFragment">
+    tools:context=".client.profile.PersonalInfoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profile_ConstraintLayout"
             android:layout_width="match_parent"
@@ -35,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Profile"
+                android:text="Personal Information"
                 android:textColor="@color/purple"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +58,6 @@
                 app:srcCompat="@drawable/ic_edit_icon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <LinearLayout
             android:id="@+id/linearLayout8"
             android:layout_width="wrap_content"
@@ -74,8 +74,8 @@
                 app:cardCornerRadius="75dp">
 
                 <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_client" />
             </androidx.cardview.widget.CardView>
@@ -94,7 +94,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:text="Nurlan Aligaziz"
                     android:textColor="@color/purple"
-                    android:textSize="17sp" />
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/tx_profile_sport"
@@ -103,9 +103,21 @@
                     android:fontFamily="@font/poppins"
                     android:text="Candidate of Master of Sports"
                     android:textColor="@color/grey"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txPersonInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/personal_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
 
         <LinearLayout
             android:id="@+id/linearLayout7"
@@ -117,10 +129,141 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout8">
+            app:layout_constraintTop_toBottomOf="@id/txPersonInfo">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/personal_info_Constraint"
+                style="@style/ProfileConstraintStyle"
+                >
+
+                <LinearLayout
+                    android:id="@+id/contact_info_Linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/PersonalInfoStyle"
+                            android:text="Contact info"
+                            />
+                        <TextView
+                            android:id="@+id/tx_contact_info"
+                            android:text="Nurlanaligaziz@gmail.com, +77771877227"
+                            style="@style/PersonalInfoTextGreyStyle"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    style="@style/ArrowPersonalInfoIcon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/contact_info_Linear"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                style="@style/DividerLine"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/birthday_Constraint"
+                style="@style/ProfileConstraintStyle"
+                >
+
+                <LinearLayout
+                    android:id="@+id/birthday_Linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PersonalInfoStyle"
+                            android:text="Birthday" />
+
+                        <TextView
+                            android:id="@+id/tx_birthday"
+                            android:text="August 31, 2009"
+                            style="@style/PersonalInfoTextGreyStyle"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    style="@style/ArrowPersonalInfoIcon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/birthday_Linear"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                style="@style/DividerLine"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/address_Constraint"
+                style="@style/ProfileConstraintStyle"
+                >
+
+                <LinearLayout
+                    android:id="@+id/address_Linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/PersonalInfoStyle"
+                            android:text="Address of registration" />
+
+                        <TextView
+                            android:id="@+id/tx_address"
+                            android:text="24 Mangilik El Avenue, Astana 010000"
+                            style="@style/PersonalInfoTextGreyStyle"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    style="@style/ArrowPersonalInfoIcon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/address_Linear"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                style="@style/DividerLine"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/social_media_Constraint"
                 style="@style/ProfileConstraintStyle"
                 >
 
@@ -133,23 +276,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_user_profile" />
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/PersonalInfoStyle"
+                            android:text="Linked social medias"
+                            />
+                        <TextView
+                            android:id="@+id/tx_social_media"
+                            android:text="Spotify | Facebook "
+                            style="@style/PersonalInfoTextGreyStyle"
+                            />
+                    </LinearLayout>
 
-                    <TextView
-                        style="@style/ProfileTextStyle"
-                        android:text="Personal Information" />
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/iv_personal_info_profile"
-                    style="@style/ArrowIcon"
+                    style="@style/ArrowPersonalInfoIcon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/linearLayout1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -158,11 +307,12 @@
                 android:layout_marginBottom="10dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/dashboard_Constraint"
-                style="@style/ProfileConstraintStyle">
+                android:id="@+id/recovery_code_Constraint"
+                style="@style/ProfileConstraintStyle"
+                >
 
                 <LinearLayout
-                    android:id="@+id/linearLayout2"
+                    android:id="@+id/recovery_code_Linear"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -170,22 +320,27 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_dashboard" />
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/PersonalInfoStyle"
+                            android:text="Recovery code"
+                            />
+                        <TextView
+                            android:id="@+id/tx_recovery_code"
+                            android:text="93HD-7F2X-KL9Q-P3ZT"
+                            style="@style/PersonalInfoTextGreyStyle"
+                            />
+                    </LinearLayout>
 
-                    <TextView
-                        style="@style/ProfileTextStyle"
-                        android:text="Dashboard" />
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/iv_card_profile"
-                    style="@style/ArrowIcon"
+                    style="@style/ArrowPersonalInfoIcon"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/linearLayout2"
+                    app:layout_constraintEnd_toEndOf="@id/recovery_code_Linear"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -194,155 +349,16 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/banks_Constraint"
-                style="@style/ProfileConstraintStyle">
 
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_credit_card" />
 
-                    <TextView
-                        style="@style/ProfileTextStyle"
-                        android:text="Banks and Cards" />
-                </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/iv_dash_profile"
-                    style="@style/ArrowIcon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/linearLayout3"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                style="@style/DividerLine"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/notification_Constraint"
-                style="@style/ProfileConstraintStyle">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_notification" />
-
-                    <TextView
-                        style="@style/ProfileTextStyle"
-                        android:text="Notifications" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_notif_profile"
-                    style="@style/ArrowIcon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/linearLayout4"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                style="@style/DividerLine"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/address_Constraint"
-                style="@style/ProfileConstraintStyle">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_location" />
-
-                    <TextView
-                        style="@style/ProfileTextStyle"
-                        android:text="Address" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_location_profile"
-                    style="@style/ArrowIcon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/linearLayout5"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                style="@style/DividerLine"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/settings_Constraint"
-                style="@style/ProfileConstraintStyle">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_settings" />
-
-                    <TextView
-                        style="@style/ProfileTextStyle"
-                        android:text="Settings" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_settings_profile"
-                    style="@style/ArrowIcon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/linearLayout6"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                style="@style/DividerLine"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp" />
 
         </LinearLayout>
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 </FrameLayout>

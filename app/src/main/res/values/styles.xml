@@ -37,5 +37,36 @@
         <item name="android:src">@drawable/ic_arrow</item>
     </style>
 
+    <style name="ProfileConstraintStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="PersonalInfoStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:layout_gravity">start</item>
+
+    </style>
+
+    <style name="ArrowPersonalInfoIcon">
+        <item name="android:layout_width">23dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:src">@drawable/ic_arrow</item>
+    </style>
+
+    <style name="PersonalInfoTextGreyStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
 
 </resources>

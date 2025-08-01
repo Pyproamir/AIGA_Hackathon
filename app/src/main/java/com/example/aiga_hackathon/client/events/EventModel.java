@@ -1,23 +1,23 @@
 package com.example.aiga_hackathon.client.events;
 
 public class EventModel {
-    public int imageUrlEvent;
+    public String imageUrlEvent;
     public boolean isLive;
     public boolean isRegisterOpen;
     public String nameEvent;
 
-    public EventModel(int imageUrlEvent, boolean isLive, boolean isRegisterOpen, String nameEvent) {
+    public EventModel(String imageUrlEvent, boolean isLive, boolean isRegisterOpen, String nameEvent) {
         this.imageUrlEvent = imageUrlEvent;
         this.isLive = isLive;
         this.isRegisterOpen = isRegisterOpen;
         this.nameEvent = nameEvent;
     }
 
-    public int getImageUrlEvent() {
+    public String getImageUrlEvent() {
         return imageUrlEvent;
     }
 
-    public void setImageUrlEvent(int imageUrlEvent) {
+    public void setImageUrlEvent(String imageUrlEvent) {
         this.imageUrlEvent = imageUrlEvent;
     }
 

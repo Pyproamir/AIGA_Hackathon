@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
-                android:id="@+id/ib_back_button_profile"
+                android:id="@+id/ib_back_button_person_info"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="25dp"
@@ -41,7 +41,7 @@
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/ib_edit_profile"
-                app:layout_constraintStart_toEndOf="@+id/ib_back_button_profile"
+                app:layout_constraintStart_toEndOf="@+id/ib_back_button_person_info"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
@@ -74,6 +74,7 @@
                 app:cardCornerRadius="75dp">
 
                 <ImageView
+                    android:id="@+id/iv_personal_info_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="fitXY"
@@ -88,7 +89,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tx_profile_name"
+                    android:id="@+id/tx_personal_info_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
@@ -97,7 +98,7 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/tx_profile_sport"
+                    android:id="@+id/tx_personal_info_sport"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"

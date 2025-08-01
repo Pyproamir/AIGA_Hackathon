@@ -1,22 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:gravity="center">
-        <shape android:shape="rectangle">
-            <corners android:radius="1dp"/>
-            <size android:width="2dp" android:height="12dp"/>
-            <solid android:color="#9E9E9E" />
-        </shape>
-    </item>
-
-    <item android:gravity="center">
-        <rotate android:fromDegrees="90">
-            <shape android:shape="rectangle">
-                <corners android:radius="1dp"/>
-                <size android:width="2dp" android:height="12dp"/>
-                <solid android:color="#9E9E9E" />
-            </shape>
-        </rotate>
-    </item>
-
-</layer-list>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="33dp"
+    android:height="33dp"
+    android:viewportWidth="33"
+    android:viewportHeight="33">
+  <path
+      android:pathData="M16.5,27.72C10.296,27.72 5.28,22.704 5.28,16.5C5.28,10.296 10.296,5.28 16.5,5.28C22.704,5.28 27.72,10.296 27.72,16.5C27.72,22.704 22.704,27.72 16.5,27.72ZM16.5,6.6C11.022,6.6 6.6,11.022 6.6,16.5C6.6,21.978 11.022,26.4 16.5,26.4C21.978,26.4 26.4,21.978 26.4,16.5C26.4,11.022 21.978,6.6 16.5,6.6Z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M10.56,15.84H22.44V17.16H10.56V15.84Z"
+      android:fillColor="#000000"/>
+  <path
+      android:pathData="M15.84,10.56H17.16V22.44H15.84V10.56Z"
+      android:fillColor="#000000"/>
+</vector>

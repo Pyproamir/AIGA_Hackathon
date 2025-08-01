@@ -26,12 +26,16 @@ public class MessageRecycleAdapter extends RecyclerView.Adapter<MessageRecycleAd
     @Override
     public MessageRecycleAdapter.MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.message_item, parent, false); // replace with your layout ID
-        return new MessageRecycleAdapter.MessageViewHolder(view);
+        return new MessageViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
+        MessageItem messageItem = messageItems.get(position);
 
+        holder.messageView.setMessageText(messageItem.getMessage());
+        holder.messageView.setMessageTime(messageItem.getTime());
+        holder.messageView.setIsAuthor(messageItem.getAuthorIsUser());
     }
 
     @Override
@@ -44,7 +48,7 @@ public class MessageRecycleAdapter extends RecyclerView.Adapter<MessageRecycleAd
 
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
-            messageView = itemView.findViewById(R.id.ChatItemView);
+            messageView = itemView.findViewById(R.id.MessageView);
         }
     }
 }

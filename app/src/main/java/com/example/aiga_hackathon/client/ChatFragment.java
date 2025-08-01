@@ -21,12 +21,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aiga_hackathon.R;
 import com.example.aiga_hackathon.client.chat.ChatView;
+import com.example.aiga_hackathon.client.chat.MessageItem;
+import com.example.aiga_hackathon.client.chat.MessageRecycleAdapter;
 import com.example.aiga_hackathon.client.drop_down_list.chats.ChatItem;
 import com.example.aiga_hackathon.client.drop_down_list.chats.ChatRecyclerAdapter;
 import com.example.aiga_hackathon.client.story_view.StoryAdapter;
 import com.example.aiga_hackathon.client.story_view.StoryItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,9 +86,34 @@ public class ChatFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        List<MessageItem> messageItemsTest = new ArrayList<MessageItem>();
+        messageItemsTest.add(new MessageItem(
+                "Го вало",
+                new Time(12, 12, 00),
+                false
+                ));
+
+        messageItemsTest.add(new MessageItem(
+                "Го вало",
+                new Time(12, 12, 00),
+                false
+        ));
+
+        messageItemsTest.add(new MessageItem(
+                "Го вало",
+                new Time(12, 12, 00),
+                false
+        ));
+
+        messageItemsTest.add(new MessageItem(
+                "Го",
+                new Time(12, 13, 00),
+                true
+        ));
+
         BottomNavigationView navBar = requireActivity().findViewById(R.id.client_bottom_nav);
 
-        LinearLayout frameFullscreen = view.findViewById(R.id.ChatLayout);
+        LinearLayout fragmentFullscreen = view.findViewById(R.id.ChatLayout);
 
         FrameLayout storyFullscreen = view.findViewById(R.id.story_fullscreen_container);
         ImageView storyImage = view.findViewById(R.id.story_image);
@@ -99,7 +127,8 @@ public class ChatFragment extends Fragment {
             public void onClick(View v) {
                 storyFullscreen.setVisibility(View.GONE);
                 chatFullscreen.setVisibility(View.GONE);
-                frameFullscreen.setVisibility(View.VISIBLE);
+                fragmentFullscreen.setVisibility(View.VISIBLE);
+                navBar.setVisibility(View.VISIBLE);
             }
         });
 
@@ -109,10 +138,17 @@ public class ChatFragment extends Fragment {
         onChatClickListener = new ChatRecyclerAdapter.OnChatClickListener() {
             @Override
             public void onChatClickListener(ChatItem chatItem, int position) {
+                MessageRecycleAdapter messageRecycleAdapter = new MessageRecycleAdapter(
+                        getContext(),
+                        messageItemsTest
+                );
+
                 chatView.setChatPFP(chatItem.pfp);
                 chatView.setUserName(chatItem.userName);
+                chatView.setMessagesRecyclerAdapter(messageRecycleAdapter);
 
-                frameFullscreen.setVisibility(View.GONE);
+                fragmentFullscreen.setVisibility(View.GONE);
+                navBar.setVisibility(View.GONE);
                 chatFullscreen.setVisibility(View.VISIBLE);
             }
         };
@@ -126,7 +162,7 @@ public class ChatFragment extends Fragment {
                 if(position == 0) return;
 
                 navBar.setVisibility(View.GONE);
-                frameFullscreen.setVisibility(View.GONE);
+                fragmentFullscreen.setVisibility(View.GONE);
                 storyImage.setImageDrawable(ContextCompat.getDrawable(
                         requireContext(),
                         R.drawable.amir));
@@ -153,7 +189,7 @@ public class ChatFragment extends Fragment {
                 animator.start();
 
                 new Handler().postDelayed(() -> {
-                    frameFullscreen.setVisibility(View.VISIBLE);
+                    fragmentFullscreen.setVisibility(View.VISIBLE);
                     navBar.setVisibility(View.VISIBLE);
                     storyFullscreen.setVisibility(View.GONE);
                 }, 3000);

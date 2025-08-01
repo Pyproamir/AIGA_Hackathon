@@ -124,13 +124,6 @@ public class ChatFragment extends Fragment {
                 "1",
                 "Today"));
 
-        chatItems.add(new ChatItem(
-                ContextCompat.getDrawable(getContext(), R.drawable.amir),
-                "Zhanel Genshin",
-                "Shut the fuck up",
-                "1",
-                "Today"));
-
         ChatRecyclerAdapter chatAdapter = new ChatRecyclerAdapter(
                 getContext(),
                 chatItems

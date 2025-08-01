@@ -40,31 +40,30 @@
         </LinearLayout>
     </FrameLayout>
 
-    <ScrollView
-        android:id="@+id/StoryLentScrollView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
         android:paddingVertical="16dp"
-        android:scrollbars="none">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/StoryLent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-    </ScrollView>
+        android:id="@+id/StoryLent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#898989"
-        android:layout_marginBottom="14dp"/>
+        android:background="#898989"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ChatLent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingHorizontal="24dp"
-        android:paddingVertical="16dp"
+        android:paddingVertical="30dp"
         android:scrollbars="vertical"
+        android:nestedScrollingEnabled="false"
+        android:layout_marginBottom="100dp"
         />
+
+
+
 
 </LinearLayout>

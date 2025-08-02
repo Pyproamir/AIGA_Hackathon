@@ -25,6 +25,9 @@
             android:name=".auth.MainActivity"
             android:exported="false" />
         <activity
+            android:name=".auth.MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".client.ClientActivity"
             android:exported="false" />
         <activity

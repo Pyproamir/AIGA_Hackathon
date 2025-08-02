@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    tools:context=".auth.MainActivity"
+    tools:context=".auth.MainActivity2"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:background="#DA0303">
@@ -33,12 +33,18 @@
         android:layout_gravity="left|bottom"/>
 
     <ImageView
-        android:layout_width="291dp"
+        android:layout_width="wrap_content"
+        android:layout_height="660dp"
+        android:layout_gravity="center|bottom"
+        android:src="@drawable/welcome_man"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|bottom"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="70dp"
-        android:src="@drawable/welcome_text" />
+        android:layout_gravity="left|top"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/welcome_text_1"/>
 
 
 </FrameLayout>

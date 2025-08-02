@@ -43,10 +43,9 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         ConstraintLayout settings = view.findViewById(R.id.settings_Constraint);
         ConstraintLayout personalInfo = view.findViewById(R.id.personal_info_Constraint);
-        ConstraintLayout notification = view.findViewById(R.id.notification_Constraint);
-        ConstraintLayout address = view.findViewById(R.id.address_Constraint);
         ConstraintLayout banks = view.findViewById(R.id.banks_Constraint);
         ConstraintLayout dashboard = view.findViewById(R.id.dashboard_Constraint);
+        ConstraintLayout bonuses = view.findViewById(R.id.bonuses_Constraint);
 
         TextView profileName = view.findViewById(R.id.tx_profile_name);
         TextView profileSport = view.findViewById(R.id.tx_profile_sport);
@@ -89,13 +88,11 @@ public class ProfileFragment extends Fragment {
                 navController.navigate(
                         R.id.action_profileActivity_to_dashboard_fragment));
 
-        address.setOnClickListener(v ->
+        bonuses.setOnClickListener(v ->
                 navController.navigate(
-                        R.id.action_profileActivity_to_address_fragment));
+                        R.id.action_profileActivity_to_bonuses_fragment));
 
-        notification.setOnClickListener(v ->
-                navController.navigate(
-                        R.id.action_profileActivity_to_notifications_fragment));
+
 
 
 

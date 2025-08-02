@@ -233,44 +233,7 @@
                 android:layout_marginBottom="10dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/notification_Constraint"
-                style="@style/ProfileConstraintStyle">
-
-                <LinearLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_notification" />
-
-                    <TextView
-                        style="@style/ProfileTextStyle"
-                        android:text="Notifications" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_notif_profile"
-                    style="@style/ArrowIcon"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/linearLayout4"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                style="@style/DividerLine"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/address_Constraint"
+                android:id="@+id/bonuses_Constraint"
                 style="@style/ProfileConstraintStyle">
 
                 <LinearLayout
@@ -286,15 +249,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_location" />
+                        app:srcCompat="@drawable/ic_bonuses" />
 
                     <TextView
                         style="@style/ProfileTextStyle"
-                        android:text="Address" />
+                        android:text="Bonuses" />
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/iv_location_profile"
+                    android:id="@+id/iv_bonuses_profile"
                     style="@style/ArrowIcon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/linearLayout5"

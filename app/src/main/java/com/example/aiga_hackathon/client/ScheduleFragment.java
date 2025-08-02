@@ -1,7 +1,6 @@
 package com.example.aiga_hackathon.client;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,7 +105,7 @@ public class ScheduleFragment extends Fragment {
                         "Serik Amir",
                         "26.01.2025",
                         "10:00",
-                        "Amir's Home"
+                        "Abylaikhan 56"
                 )
         ));
 
@@ -126,7 +125,7 @@ public class ScheduleFragment extends Fragment {
                         "Serik Amir",
                         sdf.format(initialDate),
                         "10:00",
-                        "Amir's Home"
+                        "Abylaikhan 56"
                 )
         ));
 
@@ -147,7 +146,7 @@ public class ScheduleFragment extends Fragment {
                         "Serik Amir",
                         sdf.format(selectedDate),
                         "10:00",
-                        "Amir's Home")
+                        "Abylaikhan 56")
                 );
                 availableTrainingAdapter.notifyDataSetChanged();
             }

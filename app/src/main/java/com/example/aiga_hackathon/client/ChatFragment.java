@@ -88,28 +88,10 @@ public class ChatFragment extends Fragment {
 
         List<MessageItem> messageItemsTest = new ArrayList<MessageItem>();
         messageItemsTest.add(new MessageItem(
-                "Го вало",
+                "Hello",
                 new Time(12, 12, 00),
                 false
                 ));
-
-        messageItemsTest.add(new MessageItem(
-                "Го вало",
-                new Time(12, 12, 00),
-                false
-        ));
-
-        messageItemsTest.add(new MessageItem(
-                "Го вало",
-                new Time(12, 12, 00),
-                false
-        ));
-
-        messageItemsTest.add(new MessageItem(
-                "Го",
-                new Time(12, 13, 00),
-                true
-        ));
 
         BottomNavigationView navBar = requireActivity().findViewById(R.id.client_bottom_nav);
 
@@ -142,6 +124,9 @@ public class ChatFragment extends Fragment {
                         getContext(),
                         messageItemsTest
                 );
+
+                chatItem.numberOfNewMessages = "0";
+                chatAdapter.notifyDataSetChanged();
 
                 chatView.setChatPFP(chatItem.pfp);
                 chatView.setUserName(chatItem.userName);
@@ -205,13 +190,7 @@ public class ChatFragment extends Fragment {
 
     private void SetStories(){
         ArrayList<StoryItem> storyItems = new ArrayList<>();
-        storyItems.add(new StoryItem(getContext(), "Your Story", R.drawable.ic_plus, false));
-        storyItems.add(new StoryItem(getContext(), "Argyn", R.drawable.amir));
-        storyItems.add(new StoryItem(getContext(), "Aligaziz", R.drawable.amir));
-        storyItems.add(new StoryItem(getContext(), "Eyrsal", R.drawable.amir));
-        storyItems.add(new StoryItem(getContext(), "Ibrahim", R.drawable.amir));
-        storyItems.add(new StoryItem(getContext(), "Maga", R.drawable.amir));
-        storyItems.add(new StoryItem(getContext(), "Adele", R.drawable.amir));
+        storyItems.add(new StoryItem(getContext(), "Your Story", R.drawable.plus_icon, false));
 
         storyAdapter = new StoryAdapter(
                 getContext(),
@@ -227,42 +206,7 @@ public class ChatFragment extends Fragment {
         chatItems.add(new ChatItem(
                 ContextCompat.getDrawable(getContext(), R.drawable.ic_trainer),
                 "Amir",
-                "I wanna ask you out",
-                "1",
-                "Today"));
-
-        chatItems.add(new ChatItem(
-                ContextCompat.getDrawable(getContext(), R.drawable.auditory),
-                "Aligaziz",
-                "WHATZ UP",
-                "1",
-                "Today"));
-
-        chatItems.add(new ChatItem(
-                ContextCompat.getDrawable(getContext(), R.drawable.amir),
-                "Yersal",
-                "Го вало",
-                "99",
-                "Today"));
-
-        chatItems.add(new ChatItem(
-                ContextCompat.getDrawable(getContext(), R.drawable.amir),
-                "Magzhan",
-                "I love Valo",
-                "12",
-                "Today"));
-
-        chatItems.add(new ChatItem(
-                ContextCompat.getDrawable(getContext(), R.drawable.amir),
-                "Cyboo2010",
-                "I love Valo",
-                "2",
-                "Today"));
-
-        chatItems.add(new ChatItem(
-                ContextCompat.getDrawable(getContext(), R.drawable.amir),
-                "Arsen",
-                "Almaty is world capital",
+                "Hello",
                 "1",
                 "Today"));
 
